@@ -20,7 +20,6 @@ class MasterList extends Component {
         const { items } = this.props.item;
         return (
             <Container>
-                
                 <ListGroup>
                     <TransitionGroup className="master-list">
                         {items.map(({ id, name }) => (
@@ -48,7 +47,7 @@ MasterList.propTypes = {
     item: PropTypes.object.isRequired
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     item: state.item
 });
 

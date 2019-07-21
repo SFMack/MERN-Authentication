@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
-    "Start": "node server.js",
+    "Start": "nodemon server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run start\" \"npm run client\""
   },
   "author": "Christian Mack",
   "license": "MIT",
