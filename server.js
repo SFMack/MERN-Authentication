@@ -1,4 +1,5 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const mongoose = require('mongoose');
 const path = require('path');
 const config = require('config');
@@ -8,6 +9,9 @@ const app = express();
 
 // Bodyparser Middleware
 app.use(express.json());
+
+// File uploader
+app.use(fileUpload());
 
 // DB Config
 const db = config.get('mongoURI');

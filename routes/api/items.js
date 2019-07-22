@@ -25,6 +25,26 @@ router.post('/', auth, (req, res) => {
     newItem.save().then(item => res.json(item));
 });
 
+// @route POST api/items/uploads
+// @desc Upload A Video
+// @access Private
+router.post('/upload', auth, (req, res) => {
+    if(req.files === null) {
+        return res.status(400).json({ msg: 'No file uploaded'})
+    }
+
+    const file = req.files.file;
+
+    file.mv(`${__dirname}/client/public/uploads/${file.name}`, err => {
+        if(err) {
+            console.error(err);
+            return res.status(500).send(err);
+        }
+
+        res.json({ fileName: file.name, filePath: `/uploads/${file.name}`})
+    })
+})
+
 // @route DELETE api/items/:id
 // @desc Delete A Item
 // @access Private
